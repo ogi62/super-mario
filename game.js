@@ -1,4 +1,3 @@
-const { start } = require("repl");
 
 kaboom({
   global: true,
@@ -24,6 +23,27 @@ loadSprite("pipe-bottom-right", "nqQ79eI.png");
 
 scene("game", () => {
   layers(["bg", "obj", "ui"], "obj");
+
+  const map = [
+      '                                      ',
+      '                                      ',
+      '                                      ',
+      '                                      ',
+      '                                      ',
+      '                                      ',
+      '                                      ',
+      '                                      ',
+      '                                      ',
+      '==============================   =====',
+    ];
+
+    const levelCfg = {
+        width: 20,
+        height: 20,
+        '=': [sprite('block'), solid()],
+      };
+
+      const gameLevel = addLevel(map, levelCfg);
 });
 
 start("game");
